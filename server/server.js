@@ -1,12 +1,12 @@
 const express = require("express");
+const path = require("path");
 const cookieParser = require("cookie-parser");
-const bodyParser = require("body-parser");
 
 const app = express();
 
 const port = 4000;
 
-app.use(bodyParser.json());
+app.use(express.json());
 // app.use(cookieParser());
 
 // app.use(express.static("build"));
