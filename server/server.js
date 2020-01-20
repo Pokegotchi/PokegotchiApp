@@ -2,6 +2,11 @@ const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 
+const cookieRouter = require("./routes/cookieRouter.js");
+const loginRouter = require("./routes/loginRouter.js");
+const signupRouter = require("./routes/signupRouter.js");
+const landingRouter = require("./routes/landingRouter.js");
+
 const app = express();
 
 const port = 4000;
@@ -11,7 +16,13 @@ app.use(express.json());
 
 // app.use(express.static("build"));
 
-app.get("/", (req, res) => res.send("Pokegotchi!!!"));
+app.use("/", cookieRouter);
+
+app.get("/login", loginRouter);
+
+app.use("/signup", signupRouter);
+
+app.use("/landing", landingRouter);
 
 app.use((req, res) => {
   res.status(404).send("Page Not Found");
