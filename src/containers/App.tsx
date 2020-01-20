@@ -12,7 +12,7 @@ export const App: FunctionComponent<AppProps> = props => {
 
     return (
       //   <Router>
-      <div></div>
+      <div>POKEGOTCHI APP!</div>
       //   </Router>
     );
   }
