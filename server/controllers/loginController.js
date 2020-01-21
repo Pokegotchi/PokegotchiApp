@@ -6,7 +6,7 @@ const saltRounds = 10;
 const loginController = {};
 
 // Controller for handling sign in
-loginController.login = (req, res, next) => {
+loginController.verifyUser = (req, res, next) => {
   // check data against SQL DB, then give cookie and send to landing page
 };
 

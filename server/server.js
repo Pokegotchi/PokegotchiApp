@@ -18,7 +18,7 @@ app.use(express.json());
 
 app.use("/", cookieRouter);
 
-app.get("/login", loginRouter);
+app.use("/login", loginRouter);
 
 app.use("/signup", signupRouter);
 
