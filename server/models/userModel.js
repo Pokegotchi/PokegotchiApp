@@ -5,24 +5,16 @@ const conString = 'postgres://rbfypvnj:pjNQCkJ6I-iyUNXgVu46BeIZpI1KFJvP@rajje.db
 const pool = new Pool({
   connectionString: conString
 });
-// const client = new pg.Client(conString);
+
+pool.query('SELECT NOW() AS "theTime"', function(err, result) {
+  if (err) {
+    return console.error('error running query', err);
+  }
+  console.log("result: ", result);
+});
 
 
-// client.connect(function(err) {
-//   if (err) {
-//     return console.err('could not connect to postgres', err);
-//   }
-  pool.query('SELECT NOW() AS "theTime"', function(err, result) {
-    if (err) {
-      return console.error('error running query', err);
-    }
-    // console.log("result: ", result);
-  });
-//     console.log(result.rows[0].theTime);
-//     client.end();
-//   });
-// });
-
+// todo: everything below here belong to controller directory;
 // create a user
 const createUser = (req, res, next) => {
   const { username, password } = req.body;
