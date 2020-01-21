@@ -61,6 +61,7 @@
     "css-loader": "^3.4.2",
     "html-webpack-plugin": "^3.2.0",
     "nodemon": "^2.0.2",
+    "pg": "^7.17.1",
     "react": "^16.12.0",
     "react-dom": "^16.8.6",
     "react-redux": "^7.1.3",
