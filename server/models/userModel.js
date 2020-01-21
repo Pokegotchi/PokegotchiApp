@@ -42,9 +42,12 @@ const pool = new Pool({
 //     // Use next() to move to next middleware
 //   });
 // };
-
-module.exports = pool;
-
+module.exports = {
+  query: (text, params, callback) => {
+    console.log("executed query", text);
+    return pool.query(text, params, callback);
+  }
+};
 // To test getUser method:
 // const username = "rexosariemen";
 // const password = "pass1234";
