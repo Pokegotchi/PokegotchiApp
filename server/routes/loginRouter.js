@@ -5,11 +5,12 @@ const router = express.Router();
 
 router.get("/", (req, res) => {
   /*Serve login page*/
+  res.send("sent to login page");
 });
 
 router.get(
   "/sign_in",
-  loginController.verifyUser,
+  // loginController.verifyUser,
   cookieController.createCookie,
   (req, res) => res.redirect("/landing")
 );
