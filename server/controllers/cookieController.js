@@ -3,6 +3,8 @@ const cookieController = {};
 
 cookieController.createCookie = (req, res, next) => {
   // Create cookie based on user ID saved in res.locals
+  console.log("entered checkCookie controller");
+  console.log("req.cookies", req.cookies);
   if (!req.cookies.userId) res.cookie("userId", res.locals.userId);
   next();
 };

@@ -10,9 +10,9 @@ router.get("/", (req, res) => {
 
 router.get(
   "/sign_in",
-  // loginController.verifyUser,
+  loginController.verifyUser,
   cookieController.createCookie,
-  (req, res) => res.redirect("/landing")
+  (req, res) => res.redirect("/landing/verif")
 );
 
 router.get("/sign_up", (req, res) => res.redirect("/signup"));

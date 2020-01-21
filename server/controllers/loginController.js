@@ -14,15 +14,14 @@ loginController.verifyUser = (req, res, next) => {
   pg.query(
     `SELECT password FROM users WHERE username = '${user}'`,
     (error, result) => {
-      console.log("In verifyUser", result);
       console.log("In verifyUser_rows", result.rows);
 
       if (error) return console.error(`error with query`, error);
       if (!result.rows.length)
-        return res.render("Username not found or Password incorrect");
-      bcrypt.compare(pass, result.rows[0], (_, res) => {
+        return res.send("Username not found or Password incorrect");
+      bcrypt.compare(pass, result.rows[0].password, (_, res) => {
         if (res) next();
-        else return res.render("Username not found or Password incorrect");
+        else return res.send("Username not found or Password incorrect");
       });
     }
   );
