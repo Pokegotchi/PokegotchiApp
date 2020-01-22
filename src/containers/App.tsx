@@ -15,6 +15,8 @@ export const App: FunctionComponent<AppProps> = props => {
   {
     const {} = props;
 
+    
+
     return (
       //   <Router>
         <div id="app">
@@ -33,11 +35,16 @@ export const App: FunctionComponent<AppProps> = props => {
           </div>
           <div>
             <p></p>
-            <Pokecard PokemonName="Pikachu" />
+            <Pokecard className="Fetched_Image" PokemonName="Pikachu" PokemonURL="https://img.pokemondb.net/artwork/pikachu.jpg"/>
           </div>
           <div>
             <br/>
-            <PokeSelection/>
+            <PokeSelection 
+            className="PokeSelection"
+            PokemonName="Pikachu"
+            PokemonURL="../../../assets/Poke_Question_Mark.jpg" 
+            style={{height:'100px'}} 
+            PokeFunction={()=> document.getElementsByClassName('PokeSelection')}/>
           </div>
         </div>
 

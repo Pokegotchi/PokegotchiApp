@@ -18,7 +18,7 @@ FunctionComponent<PokecardProps> = props => {
   return (
     <div className={className}>
       <h1> { PokemonName } </h1>
-      <PokeImage className="PokeImage" PokemonURL="assets/Poke Question Mark.jpg" PokeFunction={()=>document.getElementsByClassName('PokeImage')[0].setAttribute("src", "https://img.pokemondb.net/artwork/pikachu.jpg")} style={{height: '100px'}}/>
+        <PokeImage className= {className} PokemonURL={PokemonURL}/>
       <div>
         <PokeData/>
       </div>
