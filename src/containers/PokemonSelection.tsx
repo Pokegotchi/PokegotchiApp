@@ -25,9 +25,9 @@ let PokeImages:any[] = []
 for (let i = 0; i < 3; i +=1) {
 
   PokeImages.push(<PokeImage 
-    className={className + i} 
-    PokemonURL={PokemonURL} 
-    style={style} 
+    className={className + i}
+    PokemonURL={PokemonURL}
+    style={style}
     PokemonName={PokemonName}
     PokeFunction={() => {
       document.getElementsByClassName(`${className}${i}`)[0].setAttribute('src', "https://img.pokemondb.net/artwork/pikachu.jpg")
