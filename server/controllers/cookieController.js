@@ -10,7 +10,11 @@ cookieController.createCookie = (req, res, next) => {
   // Create cookie based on user ID saved in res.locals
   console.log("entered createCookie controller");
   const foundUser = req.cookies ? req.cookies : {};
-  if (!foundUser.userId) res.cookie("userId", res.locals.userId.toString());
+  if (!foundUser.userId)
+    res.cookie("userId", res.locals.userId.toString(), {
+      expires: new Date(Date.now() + 9000000),
+      httpOnly: true
+    });
   next();
 };
 
