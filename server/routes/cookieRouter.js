@@ -16,7 +16,7 @@ const router = express.Router();
 
 // If user has cookie, load user data and send to landing. else send to login
 router.get("/", cookieController.checkCookie, (req, res) =>
-  res.redirect("/login")
+  res.redirect("/landing")
 );
 
 module.exports = router;

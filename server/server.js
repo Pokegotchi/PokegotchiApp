@@ -6,6 +6,7 @@ const cookieRouter = require("./routes/cookieRouter.js");
 const loginRouter = require("./routes/loginRouter.js");
 const signupRouter = require("./routes/signupRouter.js");
 const landingRouter = require("./routes/landingRouter.js");
+const pokemonRouter = require("./routes/pokemonRouter.js");
 
 const app = express();
 
@@ -22,6 +23,10 @@ app.use("/login", loginRouter);
 app.use("/signup", signupRouter);
 
 app.use("/landing", landingRouter);
+
+app.use("/select_pokemon", pokemonRouter);
+
+// app.use("/landing", feedRouter);
 
 app.use((req, res) => {
   res.status(404).send("Page Not Found");
