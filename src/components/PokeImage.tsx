@@ -3,9 +3,8 @@ interface PokeImageProps {
   className?: string
   PokemonURL?: string
   PokemonName?: string
-  style?: any
   PokeFunction?: (...arg: any[]) => any
-
+  style?: any
 }
 export const PokeImage:
 FunctionComponent<PokeImageProps> = props => {
