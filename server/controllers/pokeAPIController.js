@@ -1,4 +1,19 @@
 // For grabbing new pokemon, will have an option for starter or all on random.
+const pg = require("../models/userModel.js");
+const pokeAPIController = {};
+​
+pokeAPIController.updateDB = (req, res, next) => {
+  // req.body contains all pokemon info for chosen one
+  const {
+    name,
+    image,
+    evolutions,
+    evolutionRequirements
+  } = req.body.data.pokemon;
+​
+  evolutions = evolutions[0].name;
+  evolutionRequirements = evolutionRequirements.amount;
+};
 
 const originalPokemon = new Array(
   "Bulbasaur",
