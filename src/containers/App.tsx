@@ -33,7 +33,7 @@ export const App: FunctionComponent<AppProps> = props => {
           </div>
           <div>
             <p></p>
-            <Pokecard PokemonName="Pikachu"/>
+            <Pokecard PokemonName="Pikachu" />
           </div>
           <div>
             <br/>
