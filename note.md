@@ -12,5 +12,6 @@ id
 Information on Pokemon
 specie, name, imageUrl, feed, hungerLevel
 
+// not needed anymore
 Information on specie Table
 id, name, imageUrl, feedLevel, evolved Id, 
