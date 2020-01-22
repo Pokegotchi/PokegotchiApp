@@ -3,9 +3,8 @@ interface PokeImageProps {
   className?: string
   PokemonURL?: string
   PokemonName?: string
+  PokeFunction?: (...arg: any[]) => any
   style?: any
-  PokemonImageDisplay?: (...arg: any[]) => any
-
 }
 export const PokeImage:
 FunctionComponent<PokeImageProps> = props => {
@@ -14,11 +13,11 @@ FunctionComponent<PokeImageProps> = props => {
       className,
       PokemonURL,
       PokemonName,
-      PokemonImageDisplay,
+      PokeFunction,
       style,
     } = props
   return (
-    <img className={className} src={PokemonURL} alt={PokemonName} onClick={PokemonImageDisplay} style={style}></img>
+    <img className={className} src={PokemonURL} alt={PokemonName} onClick={PokeFunction} style={style}></img>
     ) 
   }
 }

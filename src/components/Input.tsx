@@ -1,7 +1,6 @@
 import React, { FunctionComponent } from 'react'
 interface InputProps {
   className?: string
-  text?: string
   value?: number
   placeholder?: string
 }
@@ -10,12 +9,11 @@ FunctionComponent<InputProps> = props => {
   {
     const {
       className, 
-      text,
       value,
       placeholder,
     } = props
   return (
-    <input className={className} value={value} placeholder ={placeholder}>{text}</input>
+    <input className={className} value={value} placeholder ={placeholder}></input>
     ) 
   }
 }

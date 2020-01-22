@@ -6,6 +6,8 @@ interface PokecardProps {
   className?: string
   PokemonName?: string
   PokemonURL?: string
+  EvolveReq?: number
+  FeedCount?: number
 }
 export const Pokecard:
 FunctionComponent<PokecardProps> = props => {
@@ -13,14 +15,16 @@ FunctionComponent<PokecardProps> = props => {
     const {
       className, 
       PokemonName,
-      PokemonURL
+      PokemonURL,
+      EvolveReq,
+      FeedCount
     } = props
   return (
     <div className={className}>
       <h1> { PokemonName } </h1>
-      <PokeImage PokemonURL="https://img.pokemondb.net/artwork/pikachu.jpg"/>
+        <PokeImage className= {className} PokemonURL={PokemonURL} />
       <div>
-        <PokeData/>
+        <PokeData EvolveReq={EvolveReq} FeedCount={FeedCount}/>
       </div>
     </div>
     ) 

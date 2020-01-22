@@ -1,54 +1,59 @@
 import React, { FunctionComponent } from "react";
-import { connect } from "react-redux";
-import { RootState } from "../reducers";
 import { Button } from "../components/Button"
 import { Input } from "../components/Input"
 import { Landing_Header } from "../components/Landing_header"
-import { Pokecard } from "../containers/Pokecard" 
-import { PokeSelection } from "../containers/PokemonSelection"
-// import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Pokecard } from "./Pokecard" 
+import { PokeSelection } from "./PokemonSelection"
+import { PokeData } from "../components/PokeData"
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+
 // import "../scss/index.scss";
 
 // sets type for props
 interface AppProps {}
+
 export const App: FunctionComponent<AppProps> = props => {
   {
     const {} = props;
 
     return (
-      //   <Router>
-        <div id="app">
-          <h1>POKEGOTCHI APP!!</h1>
-          <Button className = "LeftButton" text ="Left Button"></Button>
-          <Button className = "MiddleButton" text = "Middle Button"></Button>
-          <Button className = "RightButton" text= "Right Button"></Button>
-          <div>
-            <p></p>
-            <Input className = "Username" placeholder = "Username"></Input>
-            <Input className = "Password" placeholder = "Password"></Input>
-          </div>
-          <div>
-            <p></p>
-            <Landing_Header username = "Kenny"></Landing_Header>
-          </div>
-          <div>
-            <p></p>
-            <Pokecard PokemonName="Pikachu"/>
-          </div>
-          <div>
-            <br/>
-            <PokeSelection/>
-          </div>
-        </div>
-
-      //   </Router>
-      
+      <div id="app">
+        <Router>
+          <Switch> 
+            <Route path="/login">
+              <div>
+                <Input className="userLogIn" placeholder="Username"/>
+                <Input className="passwordLogIn" placeholder="Password"/>
+                <Button className= "logInButton" text='Log In'/>
+                <Button className= "MiddleLogIn" text='Welcome'/>
+                <Button className="signUpButton" text='Sign Up'/>
+              </div>
+            </Route>
+            <Route path="/signup">
+              <div>
+                <Input className="userSignIn" placeholder="Username"/>
+                <Input className="passwordSignIn" placeholder="Password"/>
+                <Button className="signUpButton" text="Create Account"/>
+                <Button className="signUpButton" text="Create Account"/>
+                <Button className="signUpButton" text="Create Account"/>
+              </div>
+            </Route>
+            <Route path="/landing">
+              <div>
+                <Landing_Header/>
+                <Pokecard/>
+              </div>
+            </Route>
+            <Route path="/select_pokemon">
+              <div>
+                <PokeSelection/>
+              </div>
+            </Route>
+          </Switch>
+        </Router>
+      </div>
     );
   }
 };
 
-export default connect(
-  //if using selector
-  (state: RootState) => ({}),
-  {}
-)(App);
+export default App;
