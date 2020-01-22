@@ -1,11 +1,16 @@
 const cookieParser = require("cookie-parser");
 const cookieController = {};
+const express = require("express");
+const app = express();
+app.use(express.json());
+
+app.use(cookieParser());
 
 cookieController.createCookie = (req, res, next) => {
   // Create cookie based on user ID saved in res.locals
-  console.log("entered checkCookie controller");
-  console.log("req.cookies", req.cookies);
-  if (!req.cookies.userId) res.cookie("userId", res.locals.userId);
+  console.log("entered createCookie controller");
+  const foundUser = req.cookies ? req.cookies : {};
+  if (!foundUser.userId) res.cookie("userId", res.locals.userId.toString());
   next();
 };
 

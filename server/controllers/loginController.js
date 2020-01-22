@@ -12,16 +12,16 @@ loginController.verifyUser = (req, res, next) => {
   const { user, pass } = req.body;
 
   pg.query(
-    `SELECT password FROM users WHERE username = '${user}'`,
+    `SELECT password, user_id FROM users WHERE username = '${user}'`,
     (error, result) => {
-      console.log("In verifyUser_rows", result.rows);
-
       if (error) return console.error(`error with query`, error);
       if (!result.rows.length)
         return res.send("Username not found or Password incorrect");
-      bcrypt.compare(pass, result.rows[0].password, (_, res) => {
-        if (res) next();
-        else return res.send("Username not found or Password incorrect");
+      bcrypt.compare(pass, result.rows[0].password, (_, response) => {
+        if (response) {
+          res.locals.userId = result.rows[0].user_id;
+          return next();
+        } else return res.send("Username not found or Password incorrect");
       });
     }
   );
@@ -32,7 +32,6 @@ loginController.createUser = async (req, res, next) => {
   const { user, pass } = req.body;
   // First check DB to see if username has been used before
   // Optimize rows: data
-  console.log(req.body);
   const { rows: data } = await pg.query(
     `SELECT username FROM users WHERE username = '${user}'`
   );
@@ -44,10 +43,9 @@ loginController.createUser = async (req, res, next) => {
     await pg.query(
       `INSERT INTO users(user_id, username, password) VALUES(default, '${user}', '${hash}')`
     );
-    // console.log("after insert");
+
     next();
   });
-  // console.log("after bcrypt");
 };
 
 module.exports = loginController;
