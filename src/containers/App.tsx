@@ -259,8 +259,10 @@ export const App: FunctionComponent<AppProps> = props => {
                       onClick={logInUser}
                     />
                   </Link>
-                  <Button className="MiddleLogIn" text="Welcome" />
-                  <Button className="RightLogIn" text="Sign Up" />
+                  <Link to="/signup">
+                    <Button className="MiddleLogIn" text="Welcome" />
+                    <Button className="RightLogIn" text="Sign Up" />
+                  </Link>
                 </div>
               </div>
             </Route>
@@ -268,11 +270,13 @@ export const App: FunctionComponent<AppProps> = props => {
               <div>
                 <Input className="userSignUp" placeholder="Username" />
                 <Input className="passwordSignUp" placeholder="Password" />
-                <Button
-                  className="signUpButton"
-                  text="Create Account"
-                  onClick={createUser}
-                />
+                <Link to="/login">
+                  <Button
+                    className="signUpButton"
+                    text="Create Account"
+                    onClick={createUser}
+                  />
+                </Link>
                 <Button className="signUpButton" text="Create Account" />
                 <Button className="signUpButton" text="Create Account" />
               </div>

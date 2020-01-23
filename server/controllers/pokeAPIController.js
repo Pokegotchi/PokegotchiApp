@@ -5,13 +5,8 @@ const pokeAPIController = {};
 pokeAPIController.addNewPoke = async (req, res, next) => {
   // req.body contains all pokemon info for chosen one
   console.log("entered addNewPoke controller");
-  console.log("in add new poke", req.body.data.pokemon);
-  let {
-    name,
-    image,
-    evolutions,
-    evolutionRequirements
-  } = req.body.data.pokemon;
+  console.log("in add new poke", req.body.pokemon);
+  let { name, image, evolutions, evolutionRequirements } = req.body.pokemon;
 
   const { userId } = req.cookies;
 

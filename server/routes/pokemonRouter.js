@@ -12,7 +12,7 @@ router.get("/", (req, res) => {
   res.status(200).send();
 });
 
-router.get("/select", pokeAPIController.addNewPoke, (req, res) => {
+router.post("/select", pokeAPIController.addNewPoke, (req, res) => {
   /*Serve pokemon list page*/
   res.redirect("/landing");
 });

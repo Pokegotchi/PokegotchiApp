@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { PokeImage } from "../components/PokeImage";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 interface PokeSelectionProps {
   className?: string;
@@ -10,6 +11,7 @@ interface PokeSelectionProps {
   pushed?: any;
   randImage?: any;
 }
+
 export const PokemonSelection: FunctionComponent<PokeSelectionProps> = props => {
   {
     const {
@@ -20,7 +22,18 @@ export const PokemonSelection: FunctionComponent<PokeSelectionProps> = props => 
       style,
       randImage
     } = props;
-    console.log(randImage);
+    console.log("randImage", randImage);
+
+    //send graphQL data to server
+    fetch("http://localhost:4000/select_pokemon/select", {
+      method: "POST",
+      headers: {
+        "Content-Type": "Application/JSON"
+      },
+      body: JSON.stringify(randImage)
+    });
+
+    /////
 
     let PokeImages: any[] = [];
 
