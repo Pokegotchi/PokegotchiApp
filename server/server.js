@@ -1,7 +1,7 @@
 const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser");
-const cors = require("cors")
+const cors = require("cors");
 const app = express();
 
 const port = 4000;
@@ -18,8 +18,8 @@ const signupRouter = require("./routes/signupRouter.js");
 const landingRouter = require("./routes/landingRouter.js");
 const pokemonRouter = require("./routes/pokemonRouter.js");
 
-
-// app.use(express.static("build"));
+app.use(express.static("build"));
+app.use("/assets", express.static("assets"));
 
 app.use("/", cookieRouter);
 
