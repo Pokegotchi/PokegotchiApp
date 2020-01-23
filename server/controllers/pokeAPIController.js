@@ -1,170 +1,49 @@
 // For grabbing new pokemon, will have an option for starter or all on random.
 const pg = require("../models/userModel.js");
 const pokeAPIController = {};
-​
-pokeAPIController.updateDB = (req, res, next) => {
+
+pokeAPIController.addNewPoke = async (req, res, next) => {
   // req.body contains all pokemon info for chosen one
-  const {
+  console.log("in add new poke", req.body.data.pokemon);
+  let {
     name,
     image,
     evolutions,
     evolutionRequirements
   } = req.body.data.pokemon;
-​
+
+  const { userId } = req.cookies;
+
   evolutions = evolutions[0].name;
   evolutionRequirements = evolutionRequirements.amount;
+
+  const randId =
+    Math.random()
+      .toString(36)
+      .substring(2, 15) +
+    Math.random()
+      .toString(36)
+      .substring(2, 15);
+
+  await pg.query(
+    `INSERT INTO pokemon(pokemon_id, name, image_url, feed_level, feed_cap, evolved_id, userid) VALUES('${randId}', '${name}', '${image}', 0, '${evolutionRequirements}', '${evolutions}',  ${userId})`
+  );
+
+  return next();
 };
 
-const originalPokemon = new Array(
-  "Bulbasaur",
-  "Ivysaur",
-  "Venusaur",
-  "Charmander",
-  "Charmeleon",
-  "Charizard",
-  "Squirtle",
-  "Wartortle",
-  "Blastoise",
-  "Caterpie",
-  "Metapod",
-  "Butterfree",
-  "Weedle",
-  "Kakuna",
-  "Beedrill",
-  "Pidgey",
-  "Pidgeotto",
-  "Pidgeot",
-  "Rattata",
-  "Raticate",
-  "Spearow",
-  "Fearow",
-  "Ekans",
-  "Arbok",
-  "Pikachu",
-  "Raichu",
-  "Sandshrew",
-  "Sandslash",
-  "Nidoran",
-  "Nidorina",
-  "Nidoqueen",
-  "Nidoran",
-  "Nidorino",
-  "Nidoking",
-  "Clefairy",
-  "Clefable",
-  "Vulpix",
-  "Ninetales",
-  "Jigglypuff",
-  "Wigglytuff",
-  "Zubat",
-  "Golbat",
-  "Oddish",
-  "Gloom",
-  "Vileplume",
-  "Paras",
-  "Parasect",
-  "Venonat",
-  "Venomoth",
-  "Diglett",
-  "Dugtrio",
-  "Meowth",
-  "Persian",
-  "Psyduck",
-  "Golduck",
-  "Mankey",
-  "Primeape",
-  "Growlithe",
-  "Arcanine",
-  "Poliwag",
-  "Poliwhirl",
-  "Poliwrath",
-  "Abra",
-  "Kadabra",
-  "Alakazam",
-  "Machop",
-  "Machoke",
-  "Machamp",
-  "Bellsprout",
-  "Weepinbell",
-  "Victreebel",
-  "Tentacool",
-  "Tentacruel",
-  "Geodude",
-  "Graveler",
-  "Golem",
-  "Ponyta",
-  "Rapidash",
-  "Slowpoke",
-  "Slowbro",
-  "Magnemite",
-  "Magneton",
-  "Farfetch'd",
-  "Doduo",
-  "Dodrio",
-  "Seel",
-  "Dewgong",
-  "Grimer",
-  "Muk",
-  "Shellder",
-  "Cloyster",
-  "Gastly",
-  "Haunter",
-  "Gengar",
-  "Onix",
-  "Drowzee",
-  "Hypno",
-  "Krabby",
-  "Kingler",
-  "Voltorb",
-  "Electrode",
-  "Exeggcute",
-  "Exeggutor",
-  "Cubone",
-  "Marowak",
-  "Hitmonlee",
-  "Hitmonchan",
-  "Lickitung",
-  "Koffing",
-  "Weezing",
-  "Rhyhorn",
-  "Rhydon",
-  "Chansey",
-  "Tangela",
-  "Kangaskhan",
-  "Horsea",
-  "Seadra",
-  "Goldeen",
-  "Seaking",
-  "Staryu",
-  "Starmie",
-  "Mr. Mime",
-  "Scyther",
-  "Jynx",
-  "Electabuzz",
-  "Magmar",
-  "Pinsir",
-  "Tauros",
-  "Magikarp",
-  "Gyarados",
-  "Lapras",
-  "Ditto",
-  "Eevee",
-  "Vaporeon",
-  "Jolteon",
-  "Flareon",
-  "Porygon",
-  "Omanyte",
-  "Omastar",
-  "Kabuto",
-  "Kabutops",
-  "Aerodactyl",
-  "Snorlax",
-  "Articuno",
-  "Zapdos",
-  "Moltres",
-  "Dratini",
-  "Dragonair",
-  "Dragonite",
-  "Mewtwo",
-  "Mew"
-);
+//on page load of landing page, using userId, grab every pokemon the user has
+pokeAPIController.fetchUserData = async (req, res, next) => {
+  const { userId } = req.cookies;
+
+  console.log("in fetch user data", userId);
+
+  const result = await pg.query(
+    `SELECT * FROM pokemon WHERE userid = '${userId}'`
+  );
+  // console.log("in fetch user data - result", result.rows);
+  if (!result.rows.length) return res.redirect("/select_pokemon");
+  return next();
+};
+
+module.exports = pokeAPIController;
