@@ -16,14 +16,11 @@ FunctionComponent<PokeDataProps> = props => {
     } = props
   return (
     <div className={className}>
-      <p> D3 Data graph goes here maybe... </p>
-      <div>
         <p>
         This is the Evolution Requirement: {EvolveReq}
         <br/>
         This is the Current Feed Count: {FeedCount}
         </p>
-      </div>
     </div>
     ) 
   }

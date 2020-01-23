@@ -250,35 +250,43 @@ export const App: FunctionComponent<AppProps> = props => {
                 <div className="login">
                   <Input className="userLogIn" placeholder="Username" />
                   <Input className="passwordLogIn" placeholder="Password" />
-                  <Link
-                    to={pokeInfo.length ? "/landing/verif" : "/select_pokemon"}
-                  >
-                    <Button
-                      className="LeftLogIn"
-                      text="Log In"
-                      onClick={logInUser}
-                    />
-                  </Link>
-                  <Link to="/signup">
-                    <Button className="MiddleLogIn" text="Welcome" />
-                    <Button className="RightLogIn" text="Sign Up" />
-                  </Link>
+                  <div className="buttondiv">
+                    <Link
+                      to={
+                        pokeInfo.length ? "/landing/verif" : "/select_pokemon"
+                      }
+                    >
+                      <Button
+                        className="LeftLogIn"
+                        text="Log In"
+                        onClick={logInUser}
+                      />
+                    </Link>
+                    <Link to="/signup">
+                      <Button className="MiddleLogIn" text="Welcome" />
+                      <Button className="RightLogIn" text="Sign Up" />
+                    </Link>
+                  </div>
                 </div>
               </div>
             </Route>
             <Route path="/signup">
-              <div>
-                <Input className="userSignUp" placeholder="Username" />
-                <Input className="passwordSignUp" placeholder="Password" />
-                <Link to="/login">
-                  <Button
-                    className="signUpButton"
-                    text="Create Account"
-                    onClick={createUser}
-                  />
-                </Link>
-                <Button className="signUpButton" text="Create Account" />
-                <Button className="signUpButton" text="Create Account" />
+              <div className="signupContainer">
+                <div className="signup">
+                  <Input className="userSignUp" placeholder="Username" />
+                  <Input className="passwordSignUp" placeholder="Password" />
+                  <div className="buttondiv">
+                    <Link to="/login">
+                      <Button
+                        className="signUpButton"
+                        text="Create Account"
+                        onClick={createUser}
+                      />
+                    </Link>
+                    <Button className="signUpButton" text="Create Account" />
+                    <Button className="signUpButton" text="Create Account" />
+                  </div>
+                </div>
               </div>
             </Route>
             <Route path="/landing/verif">

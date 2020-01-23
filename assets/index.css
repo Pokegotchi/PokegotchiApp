@@ -8,23 +8,71 @@ body {
 .loginContainer {
   height: 100vh;
   width: 100vh;
+  position: relative;
+  left: calc(50% - 102px);
+  bottom: 50%;
+  display: flex;
+  align-items: center;
+  align-content: space-around;
+}
+
+.signupContainer {
+  height: 100vh;
+  width: 100vh;
+  position: relative;
+  left: calc(50% - 102px);
+  bottom: 50%;
+  display: flex;
+  align-items: center;
+  align-content: space-around;
+}
+
+.landingContainer {
+  height: 100vh;
+  width: 100vh;
+  max-width: 186px;
+  position: relative;
+  left: calc(50% - 102px);
+  bottom: 50%;
+  display: flex;
+  align-items: center;
+  align-content: space-around;
 }
 
 .login {
-  background-color: cyan;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-content: space-around;
+  height: 186px;
   max-height: 186px;
   max-width: 186px;
-  border: 4px red solid;
 }
 
-.LeftLogIn {
-
+.signup {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-content: space-around;
+  height: 186px;
+  max-height: 186px;
+  max-width: 186px;
 }
 
-.MiddleLogIn {
-
+.buttondiv {
+  display: flex;
+  justify-content: space-evenly;
 }
 
-.RightLogIn {
 
+
+.PokemonSelectionContainer {
+  height: 100vh;
+  width: 100vh;
+  position: relative;
+  left: calc(50% - 102px);
+  bottom: 50%;
+  display: flex;
+  align-items: center;
+  align-content: space-around;
 }
