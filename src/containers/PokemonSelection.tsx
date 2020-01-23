@@ -8,12 +8,22 @@ interface PokeSelectionProps {
   PokeFunction?: (...arg: any[]) => any;
   style?: object;
   pushed?: any;
+  randImage?: any;
 }
 export const PokemonSelection: FunctionComponent<PokeSelectionProps> = props => {
   {
-    const { className, PokemonURL, PokemonName, PokeFunction, style } = props;
+    const {
+      className,
+      PokemonURL,
+      PokemonName,
+      PokeFunction,
+      style,
+      randImage
+    } = props;
+    console.log(randImage);
 
     let PokeImages: any[] = [];
+
     for (let i = 0; i < 3; i += 1) {
       PokeImages.push(
         <PokeImage
@@ -24,10 +34,7 @@ export const PokemonSelection: FunctionComponent<PokeSelectionProps> = props => 
           PokeFunction={() => {
             document
               .getElementsByClassName(`${className}${i}`)[0]
-              .setAttribute(
-                "src",
-                "https://img.pokemondb.net/artwork/pikachu.jpg"
-              );
+              .setAttribute("src", `${randImage.pokemon.image}`);
             document
               .getElementsByClassName(`${className}${(i + 1) % 3}`)[0]
               .setAttribute("style", "opacity: 0; height: 100px");

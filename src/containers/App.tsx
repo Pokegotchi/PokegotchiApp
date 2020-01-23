@@ -234,6 +234,9 @@ export const App: FunctionComponent<AppProps> = props => {
   {
     const {} = props;
     const { data, loading, error } = useQuery(GET_POKEMON_QUERY);
+
+    if (loading) return <p>Loading...</p>;
+
     console.log(data);
     return (
       <Router>
@@ -275,7 +278,7 @@ export const App: FunctionComponent<AppProps> = props => {
             </Route>
             <Route path="/select_pokemon">
               <div>
-                <PokemonSelection className="randompokemon" />
+                <PokemonSelection className="randompokemon" randImage={data} />
               </div>
             </Route>
           </Switch>
