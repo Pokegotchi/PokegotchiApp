@@ -11,13 +11,15 @@ router.get(
   pokeAPIController.fetchUserData,
   (req, res) => {
     // Serve landing page file
+    console.log(" redirected to landing");
     res.send("rejoining landing page; cookie checked");
   }
 );
 
-router.get("/verif", pokeAPIController.fetchUserData, (req, res) =>
-  res.send(res.locals.data)
-);
+router.get("/verif", pokeAPIController.fetchUserData, (req, res) => {
+  console.log("actually redirected to landing/verif");
+  res.send(res.locals.data);
+});
 
 router.post("/feed", pokeAPIController.feedPoke);
 

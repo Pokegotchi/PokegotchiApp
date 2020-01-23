@@ -9,6 +9,8 @@ const loginController = {};
 // Controller for handling sign in
 loginController.verifyUser = (req, res, next) => {
   // check data against SQL DB, then give cookie and send to landing page
+  console.log("entered verifyUser controller");
+
   const { user, pass } = req.body;
 
   pg.query(
@@ -20,7 +22,7 @@ loginController.verifyUser = (req, res, next) => {
       bcrypt.compare(pass, result.rows[0].password, (_, response) => {
         if (response) {
           res.locals.userId = result.rows[0].user_id;
-          console.log(res.locals.userId);
+          console.log("userId", res.locals.userId);
           return next();
         } else return res.send("Username not found or Password incorrect");
       });
@@ -30,6 +32,8 @@ loginController.verifyUser = (req, res, next) => {
 
 // Controller for handling creating a user
 loginController.createUser = async (req, res, next) => {
+  console.log("entered createUser controller");
+
   const { user, pass } = req.body;
   // First check DB to see if username has been used before
   // Optimize rows: data

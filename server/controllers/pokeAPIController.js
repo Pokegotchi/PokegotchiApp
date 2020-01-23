@@ -4,6 +4,7 @@ const pokeAPIController = {};
 
 pokeAPIController.addNewPoke = async (req, res, next) => {
   // req.body contains all pokemon info for chosen one
+  console.log("entered addNewPoke controller");
   console.log("in add new poke", req.body.data.pokemon);
   let {
     name,
@@ -34,9 +35,8 @@ pokeAPIController.addNewPoke = async (req, res, next) => {
 
 //on page load of landing page, using userId, grab every pokemon the user has
 pokeAPIController.fetchUserData = async (req, res, next) => {
+  console.log("entered fetchUser controller");
   const { userId } = req.cookies;
-
-  console.log("in fetch user data", userId);
 
   const result = await pg.query(
     `SELECT * FROM pokemon WHERE userid = '${userId}'`
