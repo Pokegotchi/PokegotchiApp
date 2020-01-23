@@ -42,7 +42,7 @@ pokeAPIController.fetchUserData = async (req, res, next) => {
     `SELECT * FROM pokemon WHERE userid = '${userId}'`
   );
   // console.log("in fetch user data - result", result.rows);
-  if (!result.rows.length) return res.redirect("/select_pokemon");
+  // if (!result.rows.length) return res.redirect("/select_pokemon");
 
   //this should be an array
   res.locals.data = result.rows;

@@ -18,7 +18,7 @@ router.get(
 
 router.get("/verif", pokeAPIController.fetchUserData, (req, res) => {
   console.log("actually redirected to landing/verif");
-  res.sendFile(path.join(__dirname, "../../build/index.html"));
+  res.send(res.locals.data);
 });
 
 router.post("/feed", pokeAPIController.feedPoke);

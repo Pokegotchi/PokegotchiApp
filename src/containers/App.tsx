@@ -207,7 +207,7 @@ function createUser() {
       console.log(`You have run into an error. Error Message: ${err}`)
     );
 }
-
+let pokeInfo = [];
 function logInUser() {
   let user = (document.getElementsByClassName(
     "userLogIn"
@@ -224,7 +224,11 @@ function logInUser() {
     },
     body: JSON.stringify(body)
   })
-    .then(res => console.log(res))
+    .then(res => res.json())
+    .then(data => {
+      console.log(data);
+      pokeInfo = data;
+    })
     .catch(err =>
       console.log(`You have run into an error. Error Message: ${err}`)
     );
@@ -234,7 +238,6 @@ export const App: FunctionComponent<AppProps> = props => {
   {
     const {} = props;
     const { data, loading, error } = useQuery(GET_POKEMON_QUERY);
-
     if (loading) return <p>Loading...</p>;
 
     console.log(data);
@@ -247,11 +250,15 @@ export const App: FunctionComponent<AppProps> = props => {
                 <div className="login">
                   <Input className="userLogIn" placeholder="Username" />
                   <Input className="passwordLogIn" placeholder="Password" />
-                  <Button
-                    className="LeftLogIn"
-                    text="Log In"
-                    onClick={logInUser}
-                  />
+                  <Link
+                    to={pokeInfo.length ? "/landing/verif" : "/select_pokemon"}
+                  >
+                    <Button
+                      className="LeftLogIn"
+                      text="Log In"
+                      onClick={logInUser}
+                    />
+                  </Link>
                   <Button className="MiddleLogIn" text="Welcome" />
                   <Button className="RightLogIn" text="Sign Up" />
                 </div>

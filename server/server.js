@@ -19,6 +19,7 @@ const landingRouter = require("./routes/landingRouter.js");
 const pokemonRouter = require("./routes/pokemonRouter.js");
 
 app.use(express.static("build"));
+app.use("/assets", express.static("assets"));
 
 app.use("/", cookieRouter);
 
