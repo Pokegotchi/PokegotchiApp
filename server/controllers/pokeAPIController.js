@@ -50,4 +50,12 @@ pokeAPIController.fetchUserData = async (req, res, next) => {
   return next();
 };
 
+pokeAPIController.feedPoke = (req, res) => {
+  //Feed pokemon based on req.body sending us the pokemonId in our DB
+};
+
+pokeAPIController.evolvePoke = (req, res) => {
+  //Replace pokemon based on req.body pokemonId with new pokemon also in req.body
+};
+
 module.exports = pokeAPIController;

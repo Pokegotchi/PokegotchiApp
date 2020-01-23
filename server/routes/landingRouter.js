@@ -18,4 +18,9 @@ router.get(
 router.get("/verif", pokeAPIController.fetchUserData, (req, res) =>
   res.send(res.locals.data)
 );
+
+router.post("/feed", pokeAPIController.feedPoke);
+
+router.post("/evolve", pokeAPIController.evolvePoke);
+
 module.exports = router;
