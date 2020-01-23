@@ -39,7 +39,7 @@ for (let i = 0; i < 3; i +=1) {
 
   return (
     <div>
-      <h2> Choose your Pokemon! </h2>
+      <h3> Choose your Pokemon! </h3>
       {...PokeImages}
       <p>
         <strong>
