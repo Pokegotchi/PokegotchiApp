@@ -16,6 +16,6 @@ router.get(
 );
 
 router.get("/verif", pokeAPIController.fetchUserData, (req, res) =>
-  res.send("served landing page after login")
+  res.send(res.locals.data)
 );
 module.exports = router;
