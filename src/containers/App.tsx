@@ -296,8 +296,13 @@ export const App: FunctionComponent<AppProps> = props => {
               </div>
             </Route>
             <Route path="/select_pokemon">
-              <div>
-                <PokemonSelection className="randompokemon" randImage={data} />
+              <div className="PokemonSelectionContainer">
+                <div className="SelectPokemon">
+                  <PokemonSelection
+                    className="randompokemon"
+                    randImage={data}
+                  />
+                </div>
               </div>
             </Route>
           </Switch>
