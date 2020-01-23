@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "concurrently --kill-others \"npm run src-dev\" \"npm run start-client\"",
     "test": "echo \"Error: no test specified\" && exit 1",
     "src-dev": "webpack-dev-server --config webpack.dev.ts",
-    "start": "nodemon server/server.js",
+    "start-client": "nodemon server/server.js",
     "src-build": "webpack --config webpack.prod.ts"
   },
   "repository": {
@@ -59,6 +60,7 @@
     "awesome-typescript-loader": "^5.2.1",
     "bcrypt": "^3.0.7",
     "clean-webpack-plugin": "^3.0.0",
+    "concurrently": "^5.0.2",
     "cors": "^2.8.5",
     "css-loader": "^3.4.2",
     "html-webpack-plugin": "^3.2.0",

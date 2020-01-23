@@ -10,7 +10,7 @@ interface PokeSelectionProps {
   pushed?: any
 
 }
-export const PokeSelection:
+export const PokemonSelection:
 FunctionComponent<PokeSelectionProps> = props => {
   {
     const {
@@ -26,8 +26,8 @@ for (let i = 0; i < 3; i +=1) {
 
   PokeImages.push(<PokeImage 
     className={className + i}
-    PokemonURL={PokemonURL}
-    style={style}
+    PokemonURL={"../../assets/Poke_Question_Mark.jpg"}
+    style={{height: "100px"}}
     PokemonName={PokemonName}
     PokeFunction={() => {
       document.getElementsByClassName(`${className}${i}`)[0].setAttribute('src', "https://img.pokemondb.net/artwork/pikachu.jpg")
