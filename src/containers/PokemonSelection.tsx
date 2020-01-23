@@ -9,7 +9,7 @@ interface PokeSelectionProps {
   style?: object;
   pushed?: any;
 }
-export const PokeSelection: FunctionComponent<PokeSelectionProps> = props => {
+export const PokemonSelection: FunctionComponent<PokeSelectionProps> = props => {
   {
     const { className, PokemonURL, PokemonName, PokeFunction, style } = props;
 
@@ -18,8 +18,8 @@ export const PokeSelection: FunctionComponent<PokeSelectionProps> = props => {
       PokeImages.push(
         <PokeImage
           className={className + i}
-          PokemonURL={PokemonURL}
-          style={style}
+          PokemonURL={"../../assets/Poke_Question_Mark.jpg"}
+          style={{ height: "100px" }}
           PokemonName={PokemonName}
           PokeFunction={() => {
             document

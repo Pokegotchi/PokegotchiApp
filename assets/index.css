@@ -1,0 +1,30 @@
+body {
+  background-image: url("./Template2.jpg");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.loginContainer {
+  height: 100vh;
+  width: 100vh;
+}
+
+.login {
+  background-color: cyan;
+  max-height: 186px;
+  max-width: 186px;
+  border: 4px red solid;
+}
+
+.LeftLogIn {
+
+}
+
+.MiddleLogIn {
+
+}
+
+.RightLogIn {
+
+}

@@ -13,7 +13,7 @@ const config = (env: any): webpack.Configuration => {
       publicPath: "/"
     },
     resolve: {
-      extensions: [".ts", ".tsx", ".jsx", ".js", ".json", ".css", ".scss"]
+      extensions: [".ts", ".tsx", ".jsx", ".js", ".json", ".css"]
     },
     module: {
       rules: [
@@ -26,12 +26,20 @@ const config = (env: any): webpack.Configuration => {
           }
         },
         {
-          test: /\.(sc|c)ss$/i,
-          use: ["style-loader", "css-loader", "sass-loader"]
+          test: /\.css$/i,
+          use: ["style-loader", "css-loader"],
+          exclude: /node_modules/
         },
         {
           test: /\.(png|svg|jpg|gif)$/,
-          use: { loader: "file-loader" }
+          use: [
+            {
+              loader: "url-loader",
+              options: {
+                limit: 8192,
+              }
+            }
+          ]
         }
       ]
     },

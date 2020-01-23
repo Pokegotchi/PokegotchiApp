@@ -3,14 +3,14 @@ import { Button } from "../components/Button";
 import { Input } from "../components/Input";
 import { Landing_Header } from "../components/Landing_header";
 import { Pokecard } from "./Pokecard";
-import { PokeSelection } from "./PokemonSelection";
+import { PokemonSelection } from "./PokemonSelection";
 import { PokeData } from "../components/PokeData";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { createSecureServer } from "http2";
 import { useQuery } from "@apollo/react-hooks";
 import gql from "graphql-tag";
 
-// import "../scss/index.scss";
+import "../../assets/index.css";
 
 // sets type for props
 interface AppProps {}
@@ -240,16 +240,18 @@ export const App: FunctionComponent<AppProps> = props => {
         <div id="app">
           <Switch>
             <Route path="/login">
-              <div>
-                <Input className="userLogIn" placeholder="Username" />
-                <Input className="passwordLogIn" placeholder="Password" />
-                <Button
-                  className="logInButton"
-                  text="Log In"
-                  onClick={logInUser}
-                />
-                <Button className="MiddleLogIn" text="Welcome" />
-                <Button className="signUpButton" text="Sign Up" />
+              <div className="loginContainer">
+                <div className="login">
+                  <Input className="userLogIn" placeholder="Username" />
+                  <Input className="passwordLogIn" placeholder="Password" />
+                  <Button
+                    className="LeftLogIn"
+                    text="Log In"
+                    onClick={logInUser}
+                  />
+                  <Button className="MiddleLogIn" text="Welcome" />
+                  <Button className="RightLogIn" text="Sign Up" />
+                </div>
               </div>
             </Route>
             <Route path="/signup">
@@ -273,7 +275,7 @@ export const App: FunctionComponent<AppProps> = props => {
             </Route>
             <Route path="/select_pokemon">
               <div>
-                <PokeSelection />
+                <PokemonSelection className="randompokemon" />
               </div>
             </Route>
           </Switch>

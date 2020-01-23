@@ -8,9 +8,9 @@ const port = 4000;
 
 app.use(cors());
 
-app.use(express.json());
-
 app.use(cookieParser());
+
+app.use(express.json());
 
 const cookieRouter = require("./routes/cookieRouter.js");
 const loginRouter = require("./routes/loginRouter.js");

@@ -10,6 +10,7 @@ import { HttpLink } from "apollo-link-http";
 import { ApolloProvider } from "@apollo/react-hooks";
 import App from "./containers/App";
 import rootReducer from "./reducers";
+// import "../assets/index.css"
 
 const cache = new InMemoryCache();
 const link = new HttpLink({
