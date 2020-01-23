@@ -11,7 +11,7 @@ const config = (env: any): webpack.Configuration => {
       publicPath: "/"
     },
     resolve: {
-      extensions: [".ts", ".tsx", ".jsx", ".js", ".json", ".css", ".scss"]
+      extensions: [".ts", ".tsx", ".jsx", ".js", ".json", ".css"]
     },
     devtool: "source-map",
     module: {
@@ -22,8 +22,9 @@ const config = (env: any): webpack.Configuration => {
           loader: "awesome-typescript-loader"
         },
         {
-          test: /\.(s*)css$/i,
-          use: ["style-loader", "css-loader", "sass-loader"]
+          test: /\.css$/i,
+          use: ["style-loader", "css-loader"],
+          exclude: /node_modules/
         },
         {
           test: /\.(png|svg|jpg|gif)$/,
@@ -31,8 +32,7 @@ const config = (env: any): webpack.Configuration => {
             {
               loader: "url-loader",
               options: {
-                limit: 8000,
-                name: "./src/scss/[hash]-[name].[ext]"
+                limit: 8192,
               }
             }
           ]
