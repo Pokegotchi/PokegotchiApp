@@ -59,30 +59,40 @@ export const App: FunctionComponent<AppProps> = props => {
                 <div className="login">
                   <Input className="userLogIn" placeholder="Username"/>
                   <Input className="passwordLogIn" placeholder="Password"/>
+                  <div className="buttondiv">
                   <Button className= "LeftLogIn" text='Log In' onClick={logInUser}/>
                   <Button className= "MiddleLogIn" text='Welcome'/>
                   <Button className="RightLogIn" text='Sign Up'/>
+                  </div>
                 </div>
               </div>
             </Route>
             <Route path="/signup">
-              <div>
-                <Input className="userSignUp" placeholder="Username"/>
-                <Input className="passwordSignUp" placeholder="Password"/>
-                <Button className="signUpButton" text="Create Account" onClick={createUser}/>
-                <Button className="signUpButton" text="Create Account"/>
-                <Button className="signUpButton" text="Create Account"/>
+              <div className="signupContainer">
+                <div className="signup">
+                  <Input className="userSignUp" placeholder="Username"/>
+                  <Input className="passwordSignUp" placeholder="Password"/>
+                  <div className="buttondiv">
+                  <Button className="signUpButton" text="Create Account" onClick={createUser}/>
+                  <Button className="signUpButton" text="Create Account"/>
+                  <Button className="signUpButton" text="Create Account"/>
+                  </div>
+                </div>
               </div>
             </Route>
             <Route path="/landing/verif">
-              <div>
-                <Landing_Header/>
-                <Pokecard/>
+              <div className="landingContainer">
+                <div className="landing">
+                  <Landing_Header/>
+                  <Pokecard/>
+                </div>
               </div>
             </Route>
             <Route path="/select_pokemon">
-              <div>
+              <div className="PokemonSelectionContainer">
+                <div className="SelectPokemon">
                 <PokemonSelection className="randompokemon"/>
+                </div>
               </div>
             </Route>
           </Switch>
