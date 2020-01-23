@@ -224,7 +224,7 @@ function logInUser() {
     },
     body: JSON.stringify(body)
   })
-    .then(res => res.json())
+    .then(res => console.log(res))
     .catch(err =>
       console.log(`You have run into an error. Error Message: ${err}`)
     );
@@ -234,10 +234,10 @@ export const App: FunctionComponent<AppProps> = props => {
   {
     const {} = props;
     const { data, loading, error } = useQuery(GET_POKEMON_QUERY);
-
+    console.log(data);
     return (
-      <div id="app">
-        <Router>
+      <Router>
+        <div id="app">
           <Switch>
             <Route path="/login">
               <div>
@@ -277,8 +277,8 @@ export const App: FunctionComponent<AppProps> = props => {
               </div>
             </Route>
           </Switch>
-        </Router>
-      </div>
+        </div>
+      </Router>
     );
   }
 };

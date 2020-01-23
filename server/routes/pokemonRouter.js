@@ -9,7 +9,7 @@ const router = express.Router();
 
 router.get("/", (req, res) => {
   /*Serve random pokemon page*/
-  res.send("served 'list' of pokemon");
+  res.status(200).send();
 });
 
 router.get("/select", pokeAPIController.addNewPoke, (req, res) => {
