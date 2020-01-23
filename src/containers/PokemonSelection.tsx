@@ -42,7 +42,7 @@ export const PokemonSelection: FunctionComponent<PokeSelectionProps> = props => 
         <PokeImage
           className={className + i}
           PokemonURL={"../../assets/Poke_Question_Mark.jpg"}
-          style={{ height: "100px" }}
+          style={{ height: "75px" }}
           PokemonName={PokemonName}
           PokeFunction={() => {
             document
@@ -50,10 +50,10 @@ export const PokemonSelection: FunctionComponent<PokeSelectionProps> = props => 
               .setAttribute("src", `${randImage.pokemon.image}`);
             document
               .getElementsByClassName(`${className}${(i + 1) % 3}`)[0]
-              .setAttribute("style", "opacity: 0; height: 100px");
+              .setAttribute("style", "opacity: 0; height: 75px");
             document
               .getElementsByClassName(`${className}${(i + 2) % 3}`)[0]
-              .setAttribute("style", "opacity: 0; height: 100px");
+              .setAttribute("style", "opacity: 0; height: 75px");
           }}
         />
       );
