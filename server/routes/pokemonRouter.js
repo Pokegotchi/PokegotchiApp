@@ -7,12 +7,14 @@
 
 // const router = express.Router();
 
-// router.get("/", pokeAPIController.spawnPoke, (req, res) => {
-//   /*Serve random pokemon page*/
-//   res.send("served 'list' of pokemon");
-// });
+router.get("/", (req, res) => {
+  /*Serve random pokemon page*/
+  res.send("served 'list' of pokemon");
+});
 
-// router.get("/select", pokeAPIController.updateDB, (req, res) => {
-//   /*Serve pokemon list page*/
-//   res.redirect("/landing");
-// });
+router.get("/select", pokeAPIController.addNewPoke, (req, res) => {
+  /*Serve pokemon list page*/
+  res.redirect("/landing");
+});
+
+module.exports = router;
