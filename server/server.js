@@ -1,9 +1,12 @@
 const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser");
+const cors = require("cors")
 const app = express();
 
 const port = 4000;
+
+app.use(cors());
 
 app.use(express.json());
 
@@ -13,7 +16,8 @@ const cookieRouter = require("./routes/cookieRouter.js");
 const loginRouter = require("./routes/loginRouter.js");
 const signupRouter = require("./routes/signupRouter.js");
 const landingRouter = require("./routes/landingRouter.js");
-const pokemonRouter = require("./routes/pokemonRouter.js");
+// const pokemonRouter = require("./routes/pokemonRouter.js");
+
 
 // app.use(express.static("build"));
 
@@ -25,7 +29,7 @@ app.use("/signup", signupRouter);
 
 app.use("/landing", landingRouter);
 
-app.use("/select_pokemon", pokemonRouter);
+// app.use("/select_pokemon", pokemonRouter);
 
 // app.use("/landing", feedRouter);
 

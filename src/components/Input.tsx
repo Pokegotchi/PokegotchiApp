@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react'
 interface InputProps {
   className?: string
-  value?: number
+  value?: string
   placeholder?: string
 }
 export const Input:

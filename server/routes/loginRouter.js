@@ -8,7 +8,7 @@ router.get("/", (req, res) => {
   res.send("sent to login page");
 });
 
-router.get(
+router.post(
   "/sign_in",
   loginController.verifyUser,
   cookieController.createCookie,

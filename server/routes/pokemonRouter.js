@@ -2,10 +2,10 @@
 
 //on front end, feed state obj increments; redux saga will take in feed state, and when it hits
 
-const express = require("express");
-const pokeAPIController = require("../controllers/pokeAPIController.js");
+// const express = require("express");
+// const pokeAPIController = require("../controllers/pokeAPIController.js");
 
-const router = express.Router();
+// const router = express.Router();
 
 router.get("/", (req, res) => {
   /*Serve random pokemon page*/
