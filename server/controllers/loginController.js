@@ -20,6 +20,7 @@ loginController.verifyUser = (req, res, next) => {
       bcrypt.compare(pass, result.rows[0].password, (_, response) => {
         if (response) {
           res.locals.userId = result.rows[0].user_id;
+          console.log(res.locals.userId);
           return next();
         } else return res.send("Username not found or Password incorrect");
       });
