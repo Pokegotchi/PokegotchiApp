@@ -8,7 +8,7 @@ router.get("/", (req, res) => {
   res.send("signup page");
 });
 
-router.get("/create_user", loginController.createUser, (req, res) => {
+router.post("/create_user", loginController.createUser, (req, res) => {
   // Add them to DB here and send them to the login page
   res.redirect("/login");
 });
